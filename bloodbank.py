@@ -60,5 +60,11 @@ while True:
 
     elif(choice == 5):
         print("delete a Donor")
+        dname = input("Enter donor name to delete: ")
+        sql ="DELETE FROM `donors` WHERE `name`='"+dname+"'"
+        mycursor.execute(sql)
+        mydb.commit()
+        print("Donor data deleted.")
+
     elif(choice==6):
         break
