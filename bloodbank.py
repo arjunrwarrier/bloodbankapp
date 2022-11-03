@@ -14,7 +14,8 @@ while True:
     print("4. Update donor")
     print("5. Delete donor")
     print("6. View donors starting with a specific letter")
-    print("7.exit\n")
+    print("7. Search donors by blood group")
+    print("8.exit\n")
 
     choice = int(input("Enter an option: "))
     if(choice == 1):
@@ -75,6 +76,14 @@ while True:
         result = mycursor.fetchall()
         for i in result:
             print(i)
+    elif(choice == 7):
+        print("Search a donors by group")
+        group = input("Enter the group to search: ")
+        sql = "SELECT  `name`, `phone`, `address`, `bloodgroup`, `age` FROM `donors` WHERE `bloodgroup` LIKE '"+group+"%'"
+        mycursor.execute(sql)
+        result = mycursor.fetchall()
+        for i in result:
+            print(i)
 
-    elif(choice==7):
+    elif(choice==8):
         break
